@@ -29,7 +29,7 @@ if(is.null(rlang::maybe_missing(opts$verbose))) {
 } else {
   opts$verbose <- TRUE
 }
-globalEntry::set_vars()
+globalEntry::attach_vars(ENV_VARS = globalEntry::set_vars())
 
 # Execute User Call -------------------------------------------------------
 
@@ -43,17 +43,17 @@ result <- run_call(call = opts$call,
 # Write Data --------------------------------------------------------------
 
 #name the object and save
-if(ENV_VARS$VARS$USER_ENV == 'DEV'){
-  aws.s3::s3saveRDS(result$data,
-                    object = object,
-                    bucket = ENV_VARS$VARS$LAKE,
-                    check_region = T,
-                    key = ENV_VARS$CREDS$AWS_ACCESS_KEY_ID,
-                    secret = ENV_VARS$CREDS$AWS_SECRET_ACCESS_KEY)
-} else{
-  aws.s3::s3saveRDS(result$data,
-                    object = object,
-                    bucket = ENV_VARS$VARS$LAKE,
-                    check_region = TRUE)
-}
+#if(ENV_VARS$VARS$USER_ENV == 'DEV'){
+#  aws.s3::s3saveRDS(result$data,
+#                    object = object,
+#                    bucket = ENV_VARS$VARS$LAKE,
+#                    check_region = T,
+#                    key = ENV_VARS$CREDS$AWS_ACCESS_KEY_ID,
+#                    secret = ENV_VARS$CREDS$AWS_SECRET_ACCESS_KEY)
+#} else{
+#  aws.s3::s3saveRDS(result$data,
+#                    object = object,
+#                    bucket = ENV_VARS$VARS$LAKE,
+#                    check_region = TRUE)
+#}
 
