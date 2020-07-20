@@ -9,7 +9,7 @@
 #' @param verbose logical scalar
 #'
 #' @examples
-#' run_call(call = "harvestR::get_table(table = 'time_entries', user = HARVEST_USER, key = HARVEST_KEY, query = list(from ='2020-01-01', to = '2020-01-01'))")
+#' run_call(call = "harvestR::get_table(table = 'time_entries', user = HARVEST_USER, key = HARVEST_KEY, query = list(from ='2020-07-01', to = '2020-07-15'), strategy = \'multiprocess\')")
 #'
 #' @references
 #'
