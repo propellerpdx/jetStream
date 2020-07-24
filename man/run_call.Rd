@@ -2,9 +2,9 @@
 % Please edit documentation in R/run_call.R
 \name{run_call}
 \alias{run_call}
-\title{Execute R from a string call}
+\title{Execute R call from string argument}
 \usage{
-run_call(call = NULL, libs = NULL, verbose = TRUE)
+run_call(call = NULL, env_vars = NULL, libs = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{call}{R call}
@@ -12,6 +12,8 @@ run_call(call = NULL, libs = NULL, verbose = TRUE)
 \item{libs}{R libs}
 
 \item{verbose}{logical scalar}
+
+\item{env_Vars}{creds and dynamic params}
 }
 \description{
 to fill in
@@ -21,9 +23,6 @@ to fill in
 }
 \examples{
 run_call(call = "harvestR::get_table(table = 'time_entries', user = HARVEST_USER, key = HARVEST_KEY, query = list(from ='2020-07-01', to = '2020-07-15'), strategy = \'multiprocess\')")
-
-}
-\references{
 
 }
 \author{
