@@ -1,5 +1,16 @@
-# format_call(call = "harvestR::get_table(table = 'time_entries', user = HARVEST_USER, key = HARVEST_KEY, query = list(from ='2020-07-01', to = '2020-07-15'))")
-
+#' @title to fill in
+#' @description to fill in
+#' @author Mark Druffel, \email{mdruffel@propellerpdx.com}
+#'
+#' @details to fill in
+#'
+#' @param call to fill in
+#' @param verbose to fill in
+#'
+#' @examples
+#' format_call(call = "harvestR::get_table(table = 'time_entries', user = HARVEST_USER, key = HARVEST_KEY, query = list(from ='2020-07-01', to = '2020-07-15'))")
+#'
+#' @export
 
 format_call <- function(call = NULL, verbose = FALSE, ...){
   dots <- list(...)
