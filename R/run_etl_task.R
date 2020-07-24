@@ -30,7 +30,7 @@ run_etl_task <- function(dagid = NULL,
                          verbose = FALSE){
   # Call env_vars -----------------------------------------------------------
   #TODO move to seaduck
-  tid <- stringr::str_replace(tid = '-','/')
+  tid <- stringr::str_replace(tid, '-','/')
   if(is.null(env_vars) == FALSE){
     if(verbose == TRUE){
       message(glue::glue('jetStream::run_call(call = {env_vars}, libs = {libs}, verbose = {verbose})'))
