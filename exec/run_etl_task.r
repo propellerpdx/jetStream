@@ -27,7 +27,7 @@ opts <- docopt::docopt(doc, version = 'jetStream verion 0.0.0', quoted_args = T)
 
 if(is.null(rlang::maybe_missing(opts$verbose))) {
   opts$verbose <- FALSE
-} else if(as.logical(opts$verbose) == 'FALSE') {
+} else if(as.logical(opts$verbose) == FALSE) {
   opts$verbose <- FALSE
 } else {
   opts$verbose <- TRUE
@@ -47,4 +47,3 @@ result <- run_etl_task <- function(dagid = opts$dagid,
                                    load = opts$load,
                                    libs = opts$libs,
                                    verbose = opts$verbose)
-return(result)
