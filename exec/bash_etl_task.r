@@ -35,12 +35,12 @@ if(is.null(opts$verbose)) {
 
 # Execute User Call -------------------------------------------------------
 print("Calling run_etl_task()")
-result <- run_etl_task(dagid = opts$dagid,
-                       tid = opts$tid,
-                       env_vars = opts$env_vars,
-                       extract = opts$extract,
-                       transform = opts$transform,
-                       load = opts$load,
-                       libs = opts$libs,
-                       verbose = opts$verbose)
+result <- jetStream::run_etl_task(dagid = opts$dagid,
+                                  tid = opts$tid,
+                                  env_vars = opts$env_vars,
+                                  extract = opts$extract,
+                                  transform = opts$transform,
+                                  load = opts$load,
+                                  libs = opts$libs,
+                                  verbose = opts$verbose)
 return(result)
