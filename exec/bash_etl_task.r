@@ -34,6 +34,7 @@ if(is.null(opts$verbose)) {
 
 
 # Execute User Call -------------------------------------------------------
+library(jetStream)
 print("Calling run_etl_task()")
 result <- jetStream::run_etl_task(dagid = opts$dagid,
                                   tid = opts$tid,
