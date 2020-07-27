@@ -37,7 +37,7 @@ run_etl_task <- function(dagid = NULL,
   } else {
     env_vars <- NULL
   }
-
+  env_vars <- globalEntry::append_vars(dagid = dagid, tid = tid, env_vars = env_vars)
   # Call extract ------------------------------------------------------------
   if(is.null(extract) == FALSE){
     if(verbose == TRUE){
@@ -48,6 +48,7 @@ run_etl_task <- function(dagid = NULL,
                         env_vars = env_vars,
                         libs = libs,
                         verbose = verbose)
+    env_vars <- globalEntry::append_vars(extract = extract, env_vars = env_vars)
   } else {
     extract <- NULL
   }
@@ -63,6 +64,7 @@ run_etl_task <- function(dagid = NULL,
                           env_vars = env_vars,
                           libs = libs,
                           verbose = verbose)
+    env_vars <- globalEntry::append_vars(extract = extract, env_vars = env_vars)
   } else {
     transform <- NULL
   }
