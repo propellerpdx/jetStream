@@ -4,6 +4,8 @@
 #'
 #' @details to fill in
 #'
+#' @importFrom magrittr %$%
+#'
 #' @param call R call
 #' @param env_Vars creds and dynamic params
 #' @param libs R libs

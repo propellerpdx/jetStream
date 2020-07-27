@@ -3,3 +3,4 @@
 export(format_call)
 export(run_call)
 export(run_etl_task)
+importFrom(magrittr,"%$%")

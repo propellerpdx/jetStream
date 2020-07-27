@@ -87,6 +87,3 @@ run_etl_task <- function(dagid = NULL,
   # Just testing for now..
   return(load_files)
 }
-
-
-

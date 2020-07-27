@@ -6,7 +6,7 @@ doc <-
   'jetStream ETL bash operator provides a command line interface for Apache Airflow to execute DAG tasks that use an ETL pattern in R.
 
 Usage:
-  run__etl_task.R --dagid <dag.id> --tid <task.id> --extract <call> [--transform <call>] --load <call> [--env_vars <call>] [--libs <name>] [--verbose <TRUE | FALSE>]
+  run_etl_task.R --dagid <dag.id> --tid <task.id> --extract <call> [--transform <call>] --load <call> [--env_vars <call>] [--libs <name>] [--verbose <TRUE | FALSE>]
 
 Options:
   --dagid <dag.id>        Airflow DAG ID available through macros: https://airflow.apache.org/docs/stable/macros-ref.
@@ -21,11 +21,10 @@ Options:
   --version               Show version.'
 
 opts <- docopt::docopt(doc, version = 'jetStream verion 0.0.0', quoted_args = T)
-
-
+print(opts)
 # Setup Vars --------------------------------------------------------------
 
-if(is.null(rlang::maybe_missing(opts$verbose))) {
+if(is.null(opts$verbose)) {
   opts$verbose <- FALSE
 } else if(as.logical(opts$verbose) == FALSE) {
   opts$verbose <- FALSE
@@ -35,15 +34,14 @@ if(is.null(rlang::maybe_missing(opts$verbose))) {
 
 
 # Execute User Call -------------------------------------------------------
-
-if(opts$verbose == TRUE){
-  message(glue::glue('jetStream::run_call(call = {opts$call}, libs = {opts$libs}, verbose = {opts$verbose})'))
-}
-result <- run_etl_task <- function(dagid = opts$dagid,
-                                   tid = opts$tid,
-                                   env_vars = opts$env_vars,
-                                   extract = opts$extract,
-                                   transform = opts$transform,
-                                   load = opts$load,
-                                   libs = opts$libs,
-                                   verbose = opts$verbose)
+if(opts$ver)
+print("Calling run_etl_task()")
+result <- run_etl_task(dagid = opts$dagid,
+                       tid = opts$tid,
+                       env_vars = opts$env_vars,
+                       extract = opts$extract,
+                       transform = opts$transform,
+                       load = opts$load,
+                       libs = opts$libs,
+                       verbose = opts$verbose)
+return(result)
