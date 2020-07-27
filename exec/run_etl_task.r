@@ -34,7 +34,6 @@ if(is.null(opts$verbose)) {
 
 
 # Execute User Call -------------------------------------------------------
-if(opts$ver)
 print("Calling run_etl_task()")
 result <- run_etl_task(dagid = opts$dagid,
                        tid = opts$tid,
