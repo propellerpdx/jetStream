@@ -48,7 +48,6 @@ run_etl_task <- function(dagid = NULL,
                         env_vars = env_vars,
                         libs = libs,
                         verbose = verbose)
-    env_vars <- globalEntry::append_vars(extract = extract, env_vars = env_vars)
   } else {
     extract <- NULL
   }
@@ -63,8 +62,8 @@ run_etl_task <- function(dagid = NULL,
     transform <- run_call(call = transform,
                           env_vars = env_vars,
                           libs = libs,
-                          verbose = verbose)
-    env_vars <- globalEntry::append_vars(extract = extract, env_vars = env_vars)
+                          verbose = verbose,
+                          extract = extract)
   } else {
     transform <- NULL
   }
@@ -78,10 +77,14 @@ run_etl_task <- function(dagid = NULL,
                            env_vars = env_vars,
                            libs = libs,
                            verbose = verbose,
-                           tid = tid)
+                           tid = tid,
+                           extract = extract,
+                           transform = transform)
   } else {
     load_files <- NULL
   }
   # Just testing for now..
   return(load_files)
 }
+
+

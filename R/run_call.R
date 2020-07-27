@@ -23,9 +23,10 @@ run_call <- function(call = NULL,
                      ...
                      ){
   dots <- rlang::dots_list(...)
-  if(is.null(dots$tid) == FALSE){
-    tid <- dots$tid
-  }
+  assign_env <- rlang::current_env()
+  purrr::map2(names(dots), dots, function(x, y) {
+    assign(x, y, envir = assign_env)
+  })
   #Should break format_call into two things, check_call & format_call
   # Run check_call
   if(verbose == TRUE & !is.null(libs)){
@@ -44,4 +45,3 @@ run_call <- function(call = NULL,
     rlang::eval_tidy(call) -> result
   return(result)
 }
-
