@@ -17,7 +17,7 @@
 #' @export
 
 run_call <- function(call = NULL,
-                     env_vars = NULL,
+                     keys = NULL,
                      libs = NULL,
                      verbose = TRUE,
                      ...
@@ -41,7 +41,7 @@ run_call <- function(call = NULL,
   # Attaches credentials for API calls, AWS writes, etc.
   call <- rlang::parse_expr(call)
   #TODO Need to figure out how to deal with badly formed calls, how to stop?
-  env_vars %$%
+  keys %$%
     rlang::eval_tidy(call) -> result
   return(result)
 }
