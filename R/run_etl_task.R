@@ -55,10 +55,10 @@ run_etl_task <- function(dagid = NULL,
   # Call transform ----------------------------------------------------------
   if(is.null(transform) == FALSE){
     if(verbose == TRUE){
-      message(glue::glue('jetStream::run_call(call = {tranform}, libs = {libs}, verbose = {verbose})'))
+      message(glue::glue('jetStream::run_call(call = {transform}, libs = {libs}, verbose = {verbose})'))
     }
     # Can we use run_call for read with jinja templating in the file names? Or will we need to form the funciton for the user?
-    ## NEED TO ADD INPUT DATA AS A PARAMETER AND FEED INTO TRANFORM
+    ## NEED TO ADD INPUT DATA AS A PARAMETER AND FEED INTO TRANSFORM
     transform <- run_call(call = transform,
                           keys = keys,
                           libs = libs,
@@ -72,7 +72,7 @@ run_etl_task <- function(dagid = NULL,
       message(glue::glue('jetStream::run_call(call = {load}, libs = {libs}, verbose = {verbose})'))
     }
     # Can we use run_call for read with jinja templating in the file names? Or will we need to form the funciton for the user?
-    ## NEED TO ADD INPUT DATA AS A PARAMETER AND FEED INTO TRANFORM
+    ## NEED TO ADD INPUT DATA AS A PARAMETER AND FEED INTO TRANSFORM
     load_files <- run_call(call = load,
                            keys = keys,
                            libs = libs,
